@@ -12,7 +12,7 @@ def simulate_policy(args):
     render = True
     # load saved pkl data
     print(args.file)
-    pkl_data = load_pkl(args, discretized=discretized)
+    pkl_data = load_pkl(args, discretized=False)
     policy, env, relabeler, json_data = pkl_data
 
     if isinstance(env, PointReacherEnv):
@@ -26,7 +26,7 @@ def simulate_policy(args):
             policy,
             relabeler,
             max_path_length=args.H,
-            render=args.render or render,
+            render=False,
             render_kwargs=dict(mode='human'))
 
 if __name__ == "__main__":

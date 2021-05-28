@@ -3,7 +3,7 @@ Launcher for experiments for Generalized Hindsight Experience Replay
 """
 import torch
 import argparse
-import configs.gpu_configs as gpu_configs
+#import configs.gpu_configs as gpu_configs
 import rlkit.torch.pytorch_util as ptu
 from rlkit.launchers.launcher_util import setup_logger, set_seed, run_experiment
 from rlkit.torch.sac.sac_gher import SACTrainer
@@ -35,7 +35,7 @@ def experiment(variant):
     set_seed(int(args.seed))  #todo: should this be variant['seed']
     torch.manual_seed(int(args.seed))
     if variant['mode'] != 'ec2' and not variant['local_docker']:
-        ptu.set_gpu_mode(True)
+        ptu.set_gpu_mode(False)
 
     if variant['env_name'] == 'pointmass2':
         print("pointmass")
@@ -369,8 +369,8 @@ if __name__ == "__main__":
         exp_dir += '-test'
     sweeper = DeterministicHyperparameterSweeper(dict(seed=seeds), variant)
     all_variants = sweeper.iterate_hyperparameters()
-    for i, variant in enumerate(all_variants):
-        variant['gpu_id'] = i % gpu_configs.VARYS  #todo: change this
+  #  for i, variant in enumerate(all_variants):
+  #      variant['gpu_id'] = i % gpu_configs.VARYS  #todo: change this
     for variant in all_variants:
         if args.ec2:
             run_experiment(experiment, mode='ec2', exp_prefix=exp_dir, variant=variant,
