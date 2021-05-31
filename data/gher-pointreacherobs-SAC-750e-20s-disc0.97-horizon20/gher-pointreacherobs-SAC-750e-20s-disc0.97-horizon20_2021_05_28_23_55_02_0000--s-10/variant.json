@@ -1,0 +1,72 @@
+{
+  "algo_kwargs": {
+    "batch_size": 256,
+    "max_path_length": 20,
+    "min_num_steps_before_training": 1000,
+    "num_epochs": 750,
+    "num_eval_steps_per_epoch": 1000,
+    "num_expl_steps_per_train_loop": 20,
+    "num_train_loops_per_epoch": 5,
+    "num_trains_per_train_loop": 100
+  },
+  "algorithm": "SAC",
+  "env_kwargs": {
+    "horizon": 20
+  },
+  "env_name": "pointreacherobs",
+  "gpu": 0,
+  "insert_time": false,
+  "latent_shape_multiplier": 1,
+  "local_docker": false,
+  "mode": "here_no_doodad",
+  "path_collector_kwargs": {
+    "save_videos": false
+  },
+  "plot": false,
+  "policy_kwargs": {
+    "hidden_sizes": [
+      300,
+      300,
+      300
+    ],
+    "latent_shape_multiplier": 1,
+    "latent_to_all_layers": false
+  },
+  "proper_advantages": true,
+  "qf_kwargs": {
+    "hidden_sizes": [
+      300,
+      300,
+      300
+    ],
+    "latent_shape_multiplier": 1,
+    "latent_to_all_layers": false
+  },
+  "relabeler_kwargs": {
+    "cache": false,
+    "fixed_ratio": null,
+    "n_sampled_latents": 100,
+    "n_to_take": 1,
+    "relabel": true,
+    "sparse_reward": null,
+    "use_adv": true
+  },
+  "replay_buffer_kwargs": {
+    "approx_irl": false,
+    "latent_dim": 6,
+    "max_replay_buffer_size": 2000,
+    "plot": false
+  },
+  "seed": 10,
+  "test": false,
+  "trainer_kwargs": {
+    "discount": 0.97,
+    "policy_lr": 0.003,
+    "qf_lr": 0.003,
+    "reward_scale": 1,
+    "soft_target_tau": 0.005,
+    "target_update_period": 1,
+    "use_automatic_entropy_tuning": true
+  },
+  "use_advantages": true
+}

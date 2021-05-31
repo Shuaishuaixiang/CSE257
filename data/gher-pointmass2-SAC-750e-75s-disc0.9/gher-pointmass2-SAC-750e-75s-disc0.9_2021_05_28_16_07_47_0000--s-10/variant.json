@@ -1,0 +1,68 @@
+{
+  "algo_kwargs": {
+    "batch_size": 128,
+    "max_path_length": 15,
+    "min_num_steps_before_training": 1000,
+    "num_epochs": 750,
+    "num_eval_steps_per_epoch": 5000,
+    "num_expl_steps_per_train_loop": 75,
+    "num_trains_per_train_loop": 100
+  },
+  "algorithm": "SAC",
+  "env_kwargs": {
+    "horizon": 15
+  },
+  "env_name": "pointmass2",
+  "gpu": 0,
+  "insert_time": false,
+  "latent_shape_multiplier": 1,
+  "local_docker": false,
+  "mode": "here_no_doodad",
+  "path_collector_kwargs": {
+    "save_videos": false
+  },
+  "plot": false,
+  "policy_kwargs": {
+    "hidden_sizes": [
+      400,
+      300
+    ],
+    "latent_shape_multiplier": 1,
+    "latent_to_all_layers": false
+  },
+  "proper_advantages": true,
+  "qf_kwargs": {
+    "hidden_sizes": [
+      400,
+      300
+    ],
+    "latent_shape_multiplier": 1,
+    "latent_to_all_layers": false
+  },
+  "relabeler_kwargs": {
+    "cache": false,
+    "n_sampled_latents": 10,
+    "n_to_take": 1,
+    "power": 1,
+    "relabel": true,
+    "use_adv": false
+  },
+  "replay_buffer_kwargs": {
+    "approx_irl": false,
+    "latent_dim": 3,
+    "max_replay_buffer_size": 100000,
+    "plot": false
+  },
+  "seed": 10,
+  "test": false,
+  "trainer_kwargs": {
+    "discount": 0.9,
+    "policy_lr": 0.003,
+    "qf_lr": 0.003,
+    "reward_scale": 1,
+    "soft_target_tau": 0.005,
+    "target_update_period": 1,
+    "use_automatic_entropy_tuning": true
+  },
+  "use_advantages": false
+}
