@@ -12,7 +12,7 @@ def simulate_policy(args):
     render = True
     # load saved pkl data
     print(args.file)
-    pkl_data = load_pkl(args, discretized=False)
+    pkl_data = load_pkl(args, discretized=True)
     policy, env, relabeler, json_data = pkl_data
 
     if isinstance(env, PointReacherEnv):
